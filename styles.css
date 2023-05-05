@@ -61,10 +61,10 @@ main {
 .main-header {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
-.header-text {
+.main-header span {
   margin-left: 10px; /* Adjust this value to change the spacing between the logo and the text */
 }
 

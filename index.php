@@ -8,12 +8,10 @@
 </head>
 <body>
   <header class="main-header">
-  <div>
     <a href="index.php"> <!-- Add a link to the main page -->
       <img src="logo.png" alt="MyChan Logo" width="100" height="auto">
     </a>
-   </div>
-    <div class="header-text">MyChan - Anonymous Discussion Platform</div> <!-- Wrap the text in a div element -->
+    <span>MyChan - Anonymous Discussion Platform</span> <!-- Wrap the text in a span element -->
   </header>
   <nav>
     <a href="/">Home</a>
