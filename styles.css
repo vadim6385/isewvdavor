@@ -52,3 +52,19 @@ main {
 .post-content {
   font-size: 1.1rem;
 }
+.nav-logo {
+  width: 100px; /* Adjust this value to change the logo size */
+  height: auto;
+  display: block;
+  margin-bottom: 10px; /* Adjust this value to change the spacing between the logo and the links */
+}
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.header-text {
+  margin-left: 10px; /* Adjust this value to change the spacing between the logo and the text */
+}
+
