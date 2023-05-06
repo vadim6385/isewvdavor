@@ -7,7 +7,7 @@
   <title>MyChan - Login</title>
 </head>
 <body>
-  <?php include '/navbar.php'; ?>
+  <?php include 'navbar.php'; ?>
   <main>
   <div class="login-container">
     <h2>Login</h2>

@@ -8,7 +8,7 @@
   <title>MyChan - Anonymous Discussion Platform</title>
 </head>
 <body>
-  <?php include '/navbar.php'; ?>
+  <?php include 'navbar.php'; ?>
   <main>
     <?php
       include 'posts.php';
