@@ -7,22 +7,10 @@ $page_title = "Random - MyChan";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $page_title; ?></title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <header>
-    MyChan - Anonymous Discussion Platform
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/b">Random</a>
-    <a href="/pol">Politics</a>
-    <a href="/g">Technology</a>
-    <a href="/sci">Science</a>
-    <a href="/a">Anime & Manga</a>
-    <a href="/v">Video Games</a>
-    <a href="/fit">Fitness</a>
-  </nav>
+  <?php include '../navbar.php'; ?>
   <main>
     <?php
       // Include the posts.php file and filter the posts for the Random board

@@ -3,26 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <title>MyChan - Anonymous Discussion Platform</title>
 </head>
 <body>
-  <header class="main-header">
-    <a href="index.php"> <!-- Add a link to the main page -->
-      <img src="logo.png" alt="MyChan Logo" width="100" height="auto">
-    </a>
-    <span>MyChan - Anonymous Discussion Platform</span> <!-- Wrap the text in a span element -->
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/b">Random</a>
-    <a href="/pol">Politics</a>
-    <a href="/g">Technology</a>
-    <a href="/sci">Science</a>
-    <a href="/a">Anime & Manga</a>
-    <a href="/v">Video Games</a>
-    <a href="/fit">Fitness</a>
-  </nav>
+  <?php include '/navbar.php'; ?>
   <main>
     <?php
       include 'posts.php';
