@@ -12,6 +12,7 @@
 </header>
 <nav id="nav_bar">
   <a href="/">Home</a>
+  <a href="/login.php">Login</a>
   <a href="/b">Random</a>
   <a href="/pol">Politics</a>
   <a href="/g">Technology</a>
