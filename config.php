@@ -1,8 +1,7 @@
 <?php
-require_once __DIR__ . '/vendor/autoload.php';
+require_once 'load_env.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+load_env(__DIR__ . '/.env');
 
 $servername = getenv('DB_HOST');
 $username = getenv('DB_USER');
