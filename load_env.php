@@ -17,8 +17,6 @@ function load_env($file_path) {
         $key = trim($key);
         $value = trim($value);
 
-        if (!putenv("$key=$value")) {
-            throw new Exception("Failed to set environment variable: $key");
-        }
+        $_ENV[$key] = $value;
     }
 }
