@@ -42,6 +42,7 @@
 
   $conn->close();
   ?>
+  <!--
     <?php
       include 'posts.php';
       foreach ($posts as $post) {
@@ -57,6 +58,7 @@
         echo '</div>';
       }
     ?>
+   -->
   </main>
 </body>
 </html>
