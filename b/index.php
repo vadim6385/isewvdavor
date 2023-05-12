@@ -1,6 +1,26 @@
 <?php
-$page_title = "Random - MyChan";
+   include 'board_config.php';
+   
+   require_once '../config.php';
+   
+   // Use a prepared statement to prevent SQL injection
+   $stmt = $conn->prepare("SELECT abbrev, name FROM categories WHERE id = ?");
+   $stmt->bind_param("i", $board_id);
+
+   $stmt->execute();
+
+   $result = $stmt->get_result();
+
+   if($result->num_rows > 0) {
+       $row = $result->fetch_assoc();
+       $page_title = $row['abbrev'].' - '.$row['name'].' - MyChan';
+   } else {
+       echo "No categories found.";
+   }
+
+   $stmt->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +32,37 @@ $page_title = "Random - MyChan";
 <body>
   <?php include '../navbar.php'; ?>
   <main>
+  <?php
+  require_once '../config.php';
+  
+
+  $sql = "SELECT id, title, content FROM posts";
+  $result = $conn->query($sql);
+  
+  // Use a prepared statement to prevent SQL injection
+   $stmt = $conn->prepare("SELECT id, title, content FROM posts WHERE board_id = ?");
+   $stmt->bind_param("i", $board_id);
+
+   $stmt->execute();
+
+   $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      echo "<div class='post'>";
+      echo "<h2 class='post-title'>" . $row["title"] . "</h2>";
+      echo "<div class='post-content'>";
+      echo "<p>" . $row["content"] . "</p>";
+      echo "</div>";
+      echo "</div>";
+    }
+  } else {
+    echo "No posts found.";
+  }
+
+  $conn->close();
+  ?>
+  <!--
     <?php
       // Include the posts.php file and filter the posts for the Random board
       include 'posts.php';
@@ -33,6 +84,7 @@ $page_title = "Random - MyChan";
         echo '</div>';
       }
     ?>
+  -->
   </main>
 </body>
 </html>
