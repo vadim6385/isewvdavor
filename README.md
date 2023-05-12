@@ -3,7 +3,7 @@ A Reddit-like online forum, written in pure PHP with MySQL as the database. (Cla
 
 ## Default Logins
 
-* Admin: adeel/123
+* Admin: vadim/1234
 
 ## Features ([screenshots](./Screenshots))
 #### Societies (AKA Subreddits)
