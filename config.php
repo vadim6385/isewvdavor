@@ -1,12 +1,9 @@
 <?php
-require_once 'load_env.php';
 
-load_env(__DIR__ . '/.env');
-
-$servername = $_ENV['DB_HOST'];
-$username = $_ENV['DB_USER'];
-$password = $_ENV['DB_PASSWORD'];
-$dbname = $_ENV['DB_NAME'];
+$servername = 'sql201.byethost32.com';
+$username = 'b32_33967978';
+$password = 'ynRt!Tf_2!UBWkb';
+$dbname = 'b32_33967978_forum_db';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -42,23 +42,6 @@
 
   $conn->close();
   ?>
-  <!--
-    <?php
-      include 'posts.php';
-      foreach ($posts as $post) {
-        echo '<div class="post">';
-        echo '<h2 class="post-title">' . $post['title'] . '</h2>';
-        echo '<div class="post-info">' . $post['info'] . '</div>';
-        echo '<div class="post-content">';
-        echo '<p>' . $post['content'] . '</p>';
-        if (isset($post['image'])) {
-          echo '<img src="' . $post['image'] . '" alt="Post Image">';
-        }
-        echo '</div>';
-        echo '</div>';
-      }
-    ?>
-   -->
   </main>
 </body>
 </html>
