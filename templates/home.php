@@ -110,7 +110,7 @@
             $t = make_table($sublist, ["society"], "table", "sub_socs", [], [0]);
             $t["children"][0]["attribs"]["hidden"] = ""; // hide table header
 
-            $table = div(div(par("Oeddits"), "panel-heading"), "panel panel-primary");
+            $table = div(div(par("MindMingles"), "panel-heading"), "panel panel-primary");
             $table["children"][] = $t;
             echo to_html($table);
 

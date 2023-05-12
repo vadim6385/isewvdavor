@@ -30,7 +30,7 @@
 				<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
-					  <a class="navbar-brand" href="home.php">oeddit</a>
+					  <a class="navbar-brand" href="home.php">MindMingle</a>
 					</div>
 
 			    	<ul class="nav navbar-nav">
