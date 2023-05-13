@@ -94,53 +94,58 @@
 }
 </style>
 <div class="row">
-	<div class="col-md-4">
-	    <div class="panel panel-primary">
-	        <div class="panel-heading">
-	            <div class="row">
-	                <div class="col-xs-3">
-	                    <i class="fa fa-user fa-5x"></i>
-	                </div>
-	                <div class="col-xs-9 text-right">
-	                    <div class="huge"><?php echo $active; ?></div>
-	                    <div>Active Users</div>
-	                </div>
-	            </div>
-	        </div>
-	        <a href=<?php echo $pg."trends#utrend" ?>>
-	            <div class="panel-footer">
-	                <span class="pull-left">View Details</span>
-	                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-	                <div class="clearfix"></div>
-	            </div>
-	        </a>
-	    </div>
-    </div>
-	<div class="col-md-4">
-	    <div class="panel panel-success">
-	        <div class="panel-heading">
-	            <div class="row">
-	                <div class="col-xs-3">
-	                    <i class="fa fa-user fa-5x"></i>
-	                </div>
-	                <div class="col-xs-9 text-right">
-	                    <div class="huge"><?php echo $regs; ?></div>
-	                    <div>New Registrations today</div>
-	                </div>
-	            </div>
-	        </div>
-	        <a href=<?php echo $pg."trends#rtrend" ?>>
-	            <div class="panel-footer">
-	                <span class="pull-left">View Details</span>
-	                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-	                <div class="clearfix"></div>
-	            </div>
-	        </a>
-	    </div>
-    </div>
     <div class="col-md-4">
-        <div class="panel panel-danger">
-            <div class="panel-heading">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-user fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><?php echo $active; ?></div>
+                        <div>Active Users</div>
+                    </div>
+                </div>
+            </div>
+           <a href=<?php echo $pg."trends#rtrend" ?> >
+              <div class="card-footer text-white small z-1">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                  </span>
+                  <div class="clearfix"></div>
+              </div>
+           </a>
+        </div>
+    </div>
+   <div class="col-md-4">
+       <div class="card bg-success text-white">
+           <div class="card-body">
+               <div class="row">
+                   <div class="col-xs-3">
+                       <i class="fa fa-user fa-5x"></i>
+                   </div>
+                   <div class="col-xs-9 text-right">
+                       <div class="huge"><?php echo $regs; ?></div>
+                       <div>New Registrations today</div>
+                   </div>
+               </div>
+           </div>
+           <a href=<?php echo $pg."trends#rtrend" ?> >
+              <div class="card-footer text-white small z-1">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                  </span>
+                  <div class="clearfix"></div>
+              </div>
+           </a>
+       </div>
+   </div>
+ 
+    <div class="col-md-4">
+        <div class="card bg-success text-white">
+            <div class="card-body">
                 <div class="row">
                     <div class="col-xs-3">
                         <i class="fa fa-user fa-5x"></i>
@@ -151,15 +156,16 @@
                     </div>
                 </div>
             </div>
-            <a href=<?php echo $pg."trends#atrend" ?>>
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
+           <a href=<?php echo $pg."trends#rtrend" ?> >
+              <div class="card-footer text-white small z-1">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                  </span>
+                  <div class="clearfix"></div>
+              </div>
+           </a>
         </div>
-    </div>
 </div>
 
 <table style="width:100%;">
