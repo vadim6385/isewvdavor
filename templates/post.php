@@ -7,23 +7,21 @@
 ?>
 
 <!-- Comment Section -->
-<div class="panel panel-default well">
-	<div class="panel-heading">
-			<?php
-				echo "<h3>";
-					echo "Comments (".$post["comments"].")"."<br>";
-				echo "</h3>";
-			?>
+<div class="card mb-3">
+	<div class="card-header">
+		<?php
+			echo "<h3>";
+				echo "Comments (".$post["comments"].")"."<br>";
+			echo "</h3>";
+		?>
 	<a data-toggle="modal" data-target="#new-comm" class="btn btn-default">Add Comment</a>
 	</div>
-	<div class="panel-body well-lg">
+	<div class="card-body">
 		<?php
-
 			if (count($comms) == 0)
 				echo to_html(par("No comments yet."));
 			else
 				echo to_html(build_comment_tree($comms, $mod));
-
 		?>
 	</div>
 </div>

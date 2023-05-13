@@ -7,10 +7,10 @@
 
 <?php
 
-	// user reports
-	$table = div(div(par("Reports about posts"), "panel-heading"), "panel panel-info");
-	$table["children"][] = make_table($reps, ["title", "text", "reported by", "time", "reason"], "table", "preps", [2], [], [0]);
+    // user reports
+    $table = div(div(par("Reports about posts"), "card-header"), "card bg-info text-white");
+    $table["children"][] = make_table($reps, ["title", "text", "reported by", "time", "reason"], "table table-striped", "preps", [2], [], [0]);
 
-	echo to_html($table);
-	
+    echo to_html($table);
+    
 ?>
