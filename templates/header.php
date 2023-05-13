@@ -17,36 +17,36 @@
       .post-details { color: #777; }
       .modal { text-align: left; }
        a { color: #555; }
+      .navbar {
+       padding-top: 0;
+       padding-bottom: 0;
+       }
+      .text-orange { color: orange; }
 		</style>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="home.php">
-                    <img src="/images/logo2.png" alt="MindMingle">
-                </a>
-			    <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-					    <p class="navbar-text">
-                            <?php
-                                if (isset($_SESSION["user"])) {
-                                    echo "Signed in as <a href=\"user.php\" class=\"navbar-link\">" . $_SESSION["user"]["username"] . "</a> (<a href=\"logout.php\" class=\"navbar-link\">logout</a>)";
-                                }
-                            ?>
-					    </p>
-                    </li>
-			        <li class="nav-item">
-						<?php
-						    if (isset($_SESSION["user"]) && $_SESSION["user"]["status"] == "ADMIN")
-						    {
-							    echo "<a href=\"admin_panel.php\" class=\"nav-link\">";
-							        echo "<span class=\"fa fa-cog\"></span>";
-                                    echo " Admin Panel";
-                                echo "</a>";
-                            }
-                        ?>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+              <div class="d-flex align-items-center">
+                  <a class="navbar-brand" href="home.php">
+                      <img src="/images/logo2.png" alt="MindMingle" class="my-0 mr-2">
+                  </a>
+                  <div class="text-light">
+                      <?php
+                          if (isset($_SESSION["user"])) {
+                              echo "Signed in as <a href=\"user.php\" class=\"navbar-link text-orange\">" . $_SESSION["user"]["username"] . "</a> (<a href=\"logout.php\" class=\"navbar-link text-orange\">logout</a>)";
+                          }
+                      ?>
+                  </div>
+                  <?php
+                      if (isset($_SESSION["user"]) && $_SESSION["user"]["status"] == "ADMIN") {
+                          echo "<a href=\"admin_panel.php\" class=\"nav-link ml-2 d-inline-block text-orange\">";
+                          echo "<span class=\"fa fa-cog\"></span>";
+                          echo " Admin Panel";
+                          echo "</a>";
+                      }
+                  ?>
+              </div>
+          </div>
+      </nav>
+     <div class="container">
