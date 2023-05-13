@@ -1,0 +1,26 @@
+<div class="container" style="width:300px">
+    <div class="card mt-3">
+        <div class="card-body">
+            <form class="form-signin" action="login.php" method="post">
+                <h5 class="form-signin-heading">Please sign in</h5>
+
+                <div class="form-group">
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input name="username" type="text" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus=""/>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required=""/>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-lg btn-dark btn-block" type="submit" style="color: orange;">Sign in</button>
+                </div>
+            </form>
+            <div class="mt-2 text-center">
+                or - <a href="register.php" class="btn btn-dark" style="color: orange;">Register</a>
+            </div>
+        </div>
+    </div>
+</div>

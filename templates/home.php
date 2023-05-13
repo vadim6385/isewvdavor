@@ -1,0 +1,144 @@
+<script>
+	$( document ).ready(function(){
+		$(".downvote-active").addClass("btn-danger");
+		$(".upvote-active").addClass("btn-success");
+		$(".post-upvote").click(function() {
+			var hasVoted = $(this).hasClass("btn-success");
+		    $.ajax({
+			    url: "post_vote.php",
+			    data: {
+			        post_id: this.value,
+			        vote: hasVoted ? "UNVOTE":"UP"
+			    },
+			    type: "POST",
+			    dataType : "json",
+			    context: this,
+             success: function( json ) {
+                 if (hasVoted) {
+                     $(this).removeClass("btn-danger").addClass("btn-secondary");
+                 }
+                 else {
+                     $("#post-up-"+this.value).removeClass("btn-success").addClass("btn-secondary");
+                     $(this).removeClass("btn-secondary").addClass("btn-danger");
+                 }
+             },
+			    error: function( xhr, status, errorThrown ) {
+			        alert( "Sorry, there was a problem!" );
+			        console.log( "Error: " + errorThrown );
+			        console.log( "Status: " + status );
+			        console.dir( xhr );
+			    }
+			});
+		});
+		$(".post-downvote").click(function() {
+			var hasVoted = $(this).hasClass("btn-danger");
+		    $.ajax({
+			    url: "post_vote.php",
+			    data: {
+			        post_id: this.value,
+			        vote: hasVoted ? "UNVOTE":"DOWN"
+			    },
+			    type: "POST",
+			    dataType : "json",
+			    context: this,
+             success: function( json ) {
+                 if (hasVoted) {
+                     $(this).removeClass("btn-success").addClass("btn-secondary");
+                 }
+                 else {
+                     $("#post-down-"+this.value).removeClass("btn-danger").addClass("btn-secondary");
+                     $(this).removeClass("btn-secondary").addClass("btn-success");
+                 }
+             },
+			    error: function( xhr, status, errorThrown ) {
+			        alert( "Sorry, there was a problem!" );
+			        console.log( "Error: " + errorThrown );
+			        console.log( "Status: " + status );
+			        console.dir( xhr );
+			    }
+			});
+		});
+	});
+</script>
+
+<!-- news feed -->
+<div class="row container-fluid" style="">
+	<div class="col-md-10 container-fluid">
+		<div class="card">
+		<!-- Default card contents -->
+			<div class="card-header">News Feed</div>
+			<div class="list-group card-body">
+				<?php 
+					if (count($posts) == 0)
+					{
+						echo to_html(par("No posts yet."));
+					}
+					else
+					{
+						foreach($posts as $p)
+						{
+							echo "<div class=\"row\">";
+
+							echo to_html(post_summary($p, $p["society"], true));
+
+							echo "</div>";
+							echo "<hr>";
+						}
+					}
+				?>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2 container">
+   <div class="card mt-3">
+		<?php
+
+			$t = make_table($subs, ["society"], "table", "sub_socs", [], [0]);
+			$t["children"][0]["attribs"]["hidden"] = ""; // hide table header
+			
+			$table = div(div(par("Subscribed subs"), "card-header"), "card card-primary");
+			$table["children"][] = $t;
+			echo to_html($table);
+
+		?>
+
+        <?php
+            $sublist = get_subs();
+            $t = make_table($sublist, ["society"], "table", "sub_socs", [], [0]);
+            $t["children"][0]["attribs"]["hidden"] = ""; // hide table header
+
+            $table = div(div(par("MindMingles"), "card-header"), "card card-primary");
+            $table["children"][] = $t;
+            echo to_html($table);
+
+        ?>
+		<a data-toggle="modal" data-target="#new-soc" class="btn btn-dark" style="color: orange;" >Create a Sub</a>
+	</div>
+   </div>
+</div>
+
+<!-- new-society modal -->
+<div id="new-soc" class="modal fade">
+	<div class="modal-dialog" role="form">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>Create a new Society</h3>
+			</div>
+			<form id="new-soc-form" class="" method="POST" action="new_soc.php" >
+				<div class="modal-body">
+					<div class="form-group">
+						<input name="soc" class="form-control" type="text" placeholder="Society name">
+					</div>
+					<div class="form-group">
+						<textarea name="text" class="form-control" rows="4" placeholder="Text (Optional)"></textarea>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input class="btn btn-secondary" type="submit" value="Submit" id="new_post">
+					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
