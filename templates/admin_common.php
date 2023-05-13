@@ -2,11 +2,11 @@
     $t = isset($_GET["view"]) ? $_GET["view"] : "admins";
     $pg = "admin_panel.php?&view=";
 ?>
-<div class="panel container-fluid">
-    <div class="panel-heading">
-        <h3 class="panel-title">Admin Panel</h3>
+<div class="card container-fluid">
+    <div class="card-heading">
+        <h3 class="card-title">Admin Panel</h3>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
