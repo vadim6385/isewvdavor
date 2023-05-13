@@ -2,11 +2,11 @@
     $t = isset($_GET["view"]) ? $_GET["view"] : "admins";
     $pg = "admin_panel.php?&view=";
 ?>
-<div class="card container-fluid">
-    <div class="card-header">
+<div class="card container-fluid mt-3">
+    <div class="card-header mt-3">
         <h3 class="card-title">Admin Panel</h3>
     </div>
-    <div class="card-body">
+    <div class="card mt-3">
         <div>
             <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -36,12 +36,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "ureps" ? "active" : ""; ?>" href="<?php echo $pg . "ureps"; ?>">
-                        <i class="fa fa-warning"></i> <i class="glyphicon glyphicon-user"></i> Reported Users
+                        <i class="fa fa-warning"></i> <i class="fa fa-user"></i> Reported Users
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "sreps" ? "active" : ""; ?>" href="<?php echo $pg . "sreps"; ?>">
-                        <i class="fa fa-warning"></i> <i class="glyphicon glyphicon-home"></i> Reported Societies
+                        <i class="fa fa-warning"></i> <i class="fa fa-home"></i> Reported Societies
                     </a>
                 </li>
             </ul>
