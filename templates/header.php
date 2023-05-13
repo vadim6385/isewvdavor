@@ -29,7 +29,7 @@
           <div class="container-fluid">
               <div class="d-flex align-items-center">
                   <a class="navbar-brand" href="home.php">
-                      <img src="/images/logo2.png" alt="MindMingle" class="my-0 mr-2">
+                      <img src="../images/logo2.png" alt="MindMingle" class="my-0 mr-2">
                   </a>
                   <div class="text-light">
                       <?php
