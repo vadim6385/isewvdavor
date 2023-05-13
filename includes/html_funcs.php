@@ -121,10 +121,11 @@
 		return $tmp;
 	}
 
-	function add_button($f, $text, $class = "btn", $type = "submit")
+	function add_button($f, $text, $class = "btn btn-dark", $type = "submit" , $style = "color: orange;")
 	{
 		$b = make_tag("button", $class);
 		$b["attribs"]["type"] = $type;
+      $b["attribs"]["style"] = $style;
 		$b["data"] = $text;
 		$f["children"][] = $b;
 		return $f;

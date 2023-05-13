@@ -142,10 +142,23 @@
         $('#atrend').jqxChart(settings3);
     });
 </script>
-<div>
-<a href=<?php echo $pg."main" ?> role="button" class="btn btn-primary" style="margin: 0 auto; display:block;">Back</a>
+
+<!-- Back Button -->
+<div class="container my-3 text-center">
+    <a href="<?php echo $pg.'main' ?>" role="button" class="btn btn-primary">Back</a>
+</div>
+
+<hr>
+
+<!-- Charts -->
+<div class="container my-3">
+    <div id="utrend" style="width:100%; height:300px;"></div>
 </div>
 <hr>
-<div id="utrend" style="width:1000px; height:300px;"></div><hr>
-<div id="rtrend" style="width:1000px; height:300px;"></div><hr>
-<div id="atrend" style="width:1000px; height:300px;"></div>
+<div class="container my-3">
+    <div id="rtrend" style="width:100%; height:300px;"></div>
+</div>
+<hr>
+<div class="container my-3">
+    <div id="atrend" style="width:100%; height:300px;"></div>
+</div>
