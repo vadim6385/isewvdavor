@@ -3,7 +3,7 @@
     $pg = "admin_panel.php?&view=";
 ?>
 <div class="card container-fluid">
-    <div class="card-heading">
+    <div class="card-header">
         <h3 class="card-title">Admin Panel</h3>
     </div>
     <div class="card-body">
@@ -16,32 +16,32 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "admins" ? "active" : ""; ?>" href="<?php echo $pg . "admins"; ?>">
-                        <i class="glyphicon glyphicon-list"></i> Admin List
+                        <i class="fa fa-list"></i> Admin List
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "bans" ? "active" : ""; ?>" href="<?php echo $pg . "bans"; ?>">
-                        <i class="glyphicon glyphicon-ban-circle"></i> User Bans
+                        <i class="fa fa-ban"></i> User Bans
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "locks" ? "active" : ""; ?>" href="<?php echo $pg . "locks"; ?>">
-                        <i class="glyphicon glyphicon-lock"></i> Locked Societies
+                        <i class="fa fa-lock"></i> Locked Societies
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "log" ? "active" : ""; ?>" href="<?php echo $pg . "log"; ?>">
-                        <i class="glyphicon glyphicon-list-alt"></i> Admin Log
+                        <i class="fa fa-list-alt"></i> Admin Log
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "ureps" ? "active" : ""; ?>" href="<?php echo $pg . "ureps"; ?>">
-                        <i class="glyphicon glyphicon-warning-sign"></i> <i class="glyphicon glyphicon-user"></i> Reported Users
+                        <i class="fa fa-warning"></i> <i class="glyphicon glyphicon-user"></i> Reported Users
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php echo $t == "sreps" ? "active" : ""; ?>" href="<?php echo $pg . "sreps"; ?>">
-                        <i class="glyphicon glyphicon-warning-sign"></i> <i class="glyphicon glyphicon-home"></i> Reported Societies
+                        <i class="fa fa-warning"></i> <i class="glyphicon glyphicon-home"></i> Reported Societies
                     </a>
                 </li>
             </ul>
