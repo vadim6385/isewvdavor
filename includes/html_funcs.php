@@ -1,35 +1,43 @@
 <?php
 
-	/**
-		The printer
-	*/
-	function to_html($a)
-	{
-		$html = "<".$a["tag"];
-		// opening tag
-		foreach($a["attribs"] as $att => $val)
-		{			
-			$html .= " ".$att."=\"".$val."\" ";
-		}
-		$html .= ">";
+   /**
+    * The printer
+    */
+   function to_html($a)
+   {
+       if (!is_array($a)) {
+           return '';
+       }
+       
+       $html = '';
+       
+       if (isset($a["tag"])) {
+           $html .= "<".$a["tag"];
+           
+           // Check if 'attribs' is an array and not empty
+           if (isset($a["attribs"]) && is_array($a["attribs"]) && !empty($a["attribs"])) {
+               foreach ($a["attribs"] as $att => $val) {
+                   $html .= " ".$att."=\"".$val."\"";
+               }
+           }
+           
+           $html .= ">";
+           
+           if (isset($a["children"])) {
+               foreach ($a["children"] as $child) {
+                   $html .= "\n".to_html($child)."\n";
+               }
+           } elseif (isset($a["data"])) {
+               $html .= $a["data"];
+           }
+           
+           $html .= "</".$a["tag"].">";
+       }
+       
+       return $html;
+   }
 
-		if (isset($a["children"]))
-		{
-			foreach($a["children"] as $child)
-			{
-				$html .= "\n".to_html($child)."\n";
-			}
-		}
-		elseif (isset($a["data"]))
-		{
-			$html .= $a["data"];
-		}
 
-		// closing tag
-		$html .= "</".$a["tag"].">";
-
-		return $html;
-	}
 
 	/**
 		HTML tags
@@ -238,8 +246,8 @@
 		// put it all together
 		$h = div($vb, "row");
 		$h["children"][] = $a;
-		$h = div($h, "panel-heading");
-		$t = div($text, "panel-body well");
+		$h = div($h, "card-header");
+		$t = div($text, "card-body");
 		$t["children"][] = hr();
 		if ($mod)
 		{
@@ -251,7 +259,7 @@
 			$t["children"][] = $rept;	
 		}
 		
-		$final = div($h, "panel panel-default well");
+		$final = div($h, "card");
 		$final["children"][] = $t;
 		return $final;
 	}
@@ -259,15 +267,15 @@
 	function post_summary($p, $sname, $show_soc = false)
 	{
 		$a = a("post.php?pid=".$p["post_id"]."&soc=".$sname);
-		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", "list-group-item-heading post-title", "post-title-".$p["post_id"]));
+		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", "card-title post-title", "post-title-".$p["post_id"]));
 		if ($p["status"]=="STICKIED")
 			$title["children"][] = css_float(div(glyph("pushpin")), "right");
-		$d = small("submitted by ".to_html(user_link($p["username"]))." on ".$p["time"].(($show_soc) ? " to ".to_html(soc_link($sname)):""), "post-details");
+      $d = small("submitted by ".to_html(user_link($p["username"]))." on ".$p["time"].(($show_soc) ? " to ".to_html(soc_link($sname)):""), "post-details");
 		$a["children"][] = div($title, "row");
 		$div2 = div($a, "col-sm-11 container-fluid");
 		$div2["children"][] = div($d, "row");
 		$div2["children"][] = div(small($p["comments"]." comments", "post-summ-comms"), "row");
-		$div = div(post_vote_buttons($p), "list-group-item container-fluid post-summary".(($p["status"]=="STICKIED") ? "post-stickied":""));
+		$div = div(post_vote_buttons($p), "card");
 		$div["children"][] = $div2;
 		return $div;
 	}
@@ -318,7 +326,7 @@
 
 		$title = strong("\t(".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
 		$time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
-		$text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "well");
+		$text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
 
 		if ($c["status"] != "DELETED")
 		{
@@ -351,7 +359,7 @@
 			$text["children"][] = ($mod) ? $del:$rept;
 		}
 
-		$final = div($vb, "well".(($c["anc_id"] != $c["comm_id"]) ? " col-sm-offset-1":""));
+		$final = div($vb, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
 		$final["children"][] = $title;
 		$final["children"][] = $time;
 		$final["children"][] = $text;
@@ -364,7 +372,7 @@
 	*/
 	function post_vote_buttons($p)
 	{
-		$bdiv = make_tag("div", "col-sm-1 container-fluid post-".$p["post_id"]);
+		$bdiv = make_tag("div", "btn-group vote-buttons");
 		$bdiv["attribs"]["role"] = "group";
 		
 		$up = vote_button($p["post_id"], "arrow-up");
@@ -375,14 +383,14 @@
 		$down["attribs"]["class"] .= " post-downvote".(($p["vote"]=='DOWN') ? " downvote-active":"");
 		$down["attribs"]["id"] = "post-down-".$p["post_id"];
 		
-		$bdiv["children"][] = div($up, "row");
-		$bdiv["children"][] = div($down, "row");
+		$bdiv["children"][] = $up;
+		$bdiv["children"][] = $down;
 		return $bdiv;
 	}
 
 	function comm_vote_buttons($c)
 	{
-		$bdiv = make_tag("div", "btn-group comm-btn-group", "comm-btn-group-".$c["comm_id"]);
+		$bdiv = make_tag("div", "btn-group vote-buttons", "comm-vote-buttons-".$c["comm_id"]);
 		$bdiv["attribs"]["role"] = "group";
 		
 		$up = vote_button($c["comm_id"], "arrow-up");
@@ -400,13 +408,13 @@
 		}
 
 		$bdiv["children"][] = $up;
-		$bdiv["children"][] = $down;
+				$bdiv["children"][] = $down;
 		return $bdiv;
 	}
 
 	function vote_button($id, $g)
 	{
-		$b = make_tag("button", "btn btn-default btn-sm vote");
+		$b = make_tag("button", "btn btn-default btn-sm vote-button");
 		$b["attribs"]["type"] = "button";
 		$b["attribs"]["value"] = $id;
 		$b["children"][] = glyph($g);
@@ -445,3 +453,5 @@
 	function u($uname)		{ return to_html(user_link($uname)); }
 	function soc($sname)	{ return to_html(soc_link($sname)); }
 ?>
+
+
