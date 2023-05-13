@@ -43,9 +43,9 @@
 		HTML tags
 	*/
 
-	function make_tag($t, $class = "", $id = "")
+	function make_tag($t, $class = "", $id = "", $style="")
 	{
-		return ["tag" => $t, "attribs" => ["class" => $class, "id" => $id, "style" => ""]];
+		return ["tag" => $t, "attribs" => ["class" => $class, "id" => $id, "style" => $style]];
 	}
 
 	function make_table($rows, $hds, $class = "", $id = "", $ucols = [], $scols = [], $pcols = [])

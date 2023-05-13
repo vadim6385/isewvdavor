@@ -22,6 +22,10 @@
        padding-bottom: 0;
        }
       .text-orange { color: orange; }
+      .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+       background-color: black;
+       color: orange;
+         }
 		</style>
 	</head>
 	<body>

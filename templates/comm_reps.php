@@ -8,7 +8,7 @@
 <?php
 
 	// user reports
-	$table = div(div(par("Reports about posts"), "card-header"), "card card-info");
+	$table = div(div(par("Reports about comments"), "card-header"), "card card-info");
 	$table["children"][] = make_table($reps, ["comment text", "reported by", "time", "reason"], "table", "creps");
 
 	echo to_html($table);
