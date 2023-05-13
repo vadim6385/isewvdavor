@@ -206,7 +206,7 @@
 		$a = a("post.php?pid=".$p["post_id"]."&soc=".$s["soc_name"], "col-md-11");
 		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", " post-title"));
 		if ($p["status"]=="STICKIED")
-			$title["children"][] = css_float(div(glyph("pushpin")), "right");
+			$title["children"][] = css_float(div(fa("pushpin")), "right");
 		$d = small("submitted by ".$p["username"]." on ".$p["time"], "post-details");
 		$a["children"][] = $title;
 		$a["children"][] = $d;
@@ -228,7 +228,7 @@
 
 		// delete button
 		$del = a("", "btn btn-xs btn-link post-del");
-		$del["children"][] = glyph("trash");
+		$del["children"][] = fa("trash");
 		$del["children"][] = span("delete");
 		$del["attribs"]["data-toggle"] = "modal";
 		$del["attribs"]["data-target"] = "#del-post";
@@ -237,7 +237,7 @@
 
 		// sticky button
 		$sticky = a("", "btn btn-xs btn-link post-sticky");
-		$sticky["children"][] = glyph("pushpin");
+		$sticky["children"][] = fa("pushpin");
 		$sticky["children"][] = span($p["status"]=="STICKIED" ? "unsticky":"sticky");
 		$sticky["attribs"]["data-toggle"] = "modal";
 		$sticky["attribs"]["data-target"] = "#sticky-post";
@@ -270,7 +270,7 @@
 		$a = a("post.php?pid=".$p["post_id"]."&soc=".$sname);
 		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", "card-title post-title", "post-title-".$p["post_id"]));
 		if ($p["status"]=="STICKIED")
-			$title["children"][] = css_float(div(glyph("pushpin")), "right");
+			$title["children"][] = css_float(div(fa("pushpin")), "right");
       $d = small("submitted by ".to_html(user_link($p["username"]))." on ".$p["time"].(($show_soc) ? " to ".to_html(soc_link($sname)):""), "post-details");
 		$a["children"][] = div($title, "row");
 		$div2 = div($a, "col-sm-11 container-fluid");
@@ -418,13 +418,18 @@
 		$b = make_tag("button", "btn btn-default btn-sm vote-button");
 		$b["attribs"]["type"] = "button";
 		$b["attribs"]["value"] = $id;
-		$b["children"][] = glyph($g);
+		$b["children"][] = fa($g);
 		return $b;
 	}
 
 	function glyph($g)
 	{
 		return make_tag("span", "glyphicon glyphicon-".$g);
+	}
+   
+   function fa($g)
+	{
+		return make_tag("span", "fa fa-".$g);
 	}
 
 	/**
