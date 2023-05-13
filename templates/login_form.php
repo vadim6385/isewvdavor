@@ -18,8 +18,8 @@
                     <button class="btn btn-lg btn-dark btn-block" type="submit" style="color: orange;">Sign in</button>
                 </div>
             </form>
-            <div>
-                or <a href="register.php">register</a>
+            <div class="mt-2 text-center">
+                or - <a href="register.php" class="btn btn-dark" style="color: orange;">Register</a>
             </div>
         </div>
     </div>
