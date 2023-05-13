@@ -187,10 +187,20 @@
     });
 </script>
 <div>
-<a href=<?php echo $pg."main" ?> role="button" class="btn btn-primary" style="margin: 0 auto; display:block;">Back</a>
+<a href=<?php echo $pg."main" ?> role="button" class="btn btn-dark" style="margin: 0 auto; display:block; color: orange;">Back</a>
+</div>
+<div class="d-flex justify-content-center">
+    <div id="atrend" style="width:1000px; height:300px;"></div>
 </div>
 <hr>
-<div id="atrend" style="width:1000px; height:300px;"></div><hr>
-<div id="strend" style="width:1000px; height:300px;"></div><hr>
-<div id="ctrend" style="width:1000px; height:300px;"></div><hr>
-<div id="ptrend" style="width:1000px; height:300px;"></div>
+<div class="d-flex justify-content-center">
+    <div id="strend" style="width:1000px; height:300px;"></div>
+</div>
+<hr>
+<div class="d-flex justify-content-center">
+    <div id="ctrend" style="width:1000px; height:300px;"></div>
+</div>
+<hr>
+<div class="d-flex justify-content-center">
+    <div id="ptrend" style="width:1000px; height:300px;"></div>
+</div>

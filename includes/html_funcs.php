@@ -43,9 +43,9 @@
 		HTML tags
 	*/
 
-	function make_tag($t, $class = "", $id = "")
+	function make_tag($t, $class = "", $id = "", $style="")
 	{
-		return ["tag" => $t, "attribs" => ["class" => $class, "id" => $id, "style" => ""]];
+		return ["tag" => $t, "attribs" => ["class" => $class, "id" => $id, "style" => $style]];
 	}
 
 	function make_table($rows, $hds, $class = "", $id = "", $ucols = [], $scols = [], $pcols = [])
@@ -206,7 +206,7 @@
 		$a = a("post.php?pid=".$p["post_id"]."&soc=".$s["soc_name"], "col-md-11");
 		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", " post-title"));
 		if ($p["status"]=="STICKIED")
-			$title["children"][] = css_float(div(glyph("pushpin")), "right");
+			$title["children"][] = css_float(div(fa("map-pin")), "right");
 		$d = small("submitted by ".$p["username"]." on ".$p["time"], "post-details");
 		$a["children"][] = $title;
 		$a["children"][] = $d;
@@ -228,7 +228,7 @@
 
 		// delete button
 		$del = a("", "btn btn-xs btn-link post-del");
-		$del["children"][] = glyph("trash");
+		$del["children"][] = fa("trash");
 		$del["children"][] = span("delete");
 		$del["attribs"]["data-toggle"] = "modal";
 		$del["attribs"]["data-target"] = "#del-post";
@@ -237,7 +237,7 @@
 
 		// sticky button
 		$sticky = a("", "btn btn-xs btn-link post-sticky");
-		$sticky["children"][] = glyph("pushpin");
+		$sticky["children"][] = fa("map-pin");
 		$sticky["children"][] = span($p["status"]=="STICKIED" ? "unsticky":"sticky");
 		$sticky["attribs"]["data-toggle"] = "modal";
 		$sticky["attribs"]["data-target"] = "#sticky-post";
@@ -270,7 +270,7 @@
 		$a = a("post.php?pid=".$p["post_id"]."&soc=".$sname);
 		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", "card-title post-title", "post-title-".$p["post_id"]));
 		if ($p["status"]=="STICKIED")
-			$title["children"][] = css_float(div(glyph("pushpin")), "right");
+			$title["children"][] = css_float(div(fa("map-pin")), "right");
       $d = small("submitted by ".to_html(user_link($p["username"]))." on ".$p["time"].(($show_soc) ? " to ".to_html(soc_link($sname)):""), "post-details");
 		$a["children"][] = div($title, "row");
 		$div2 = div($a, "col-sm-11 container-fluid");
@@ -328,36 +328,47 @@
 		$title = strong("\t(".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
 		$time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
 		$text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
+      $buttonWrapper = div("", "button-wrapper");
+      $buttonWrapper["attribs"]["style"] = "display:flex; justify-content:space-between;";
+
 
 		if ($c["status"] != "DELETED")
 		{
 			// reply button
 			$reply = a("", "btn btn-xs btn-link comm-reply");
+         $reply["children"][] = fa("reply");
+         $reply["children"][] = " Reply";
 			$reply["data"] = "reply";
 			$reply["attribs"]["data-toggle"] = "modal";
 			$reply["attribs"]["data-target"] = "#new-comm";
 			$reply["attribs"]["value"] = $c["comm_id"];
+         $reply["attribs"]["style"] = "color:black;";  // Change the color here
 
 			// report button
 			$rept = a("", "btn btn-xs btn-link comm-report");
+         $rept["children"][] = fa("warning");
+         $rept["children"][] = " Report";
 			$rept["data"] = "report";
 			$rept["attribs"]["data-toggle"] = "modal";
 			$rept["attribs"]["data-target"] = "#report-comm";
 			$rept["attribs"]["value"] = $c["comm_id"];
-			$rept["attribs"]["style"] = "float:right;";
+         $rept["attribs"]["style"] = "color:black;";  // Change the color here
 			
 			// delete button
 			$del = a("", "btn btn-xs btn-link comm-del");
+         $del["children"][] = fa("trash");
+         $del["children"][] = " Delete";
 			$del["data"] = "delete";
 			$del["attribs"]["data-toggle"] = "modal";
 			$del["attribs"]["data-target"] = "#del-comm";
 			$del["attribs"]["value"] = $c["comm_id"];
-			$del["attribs"]["style"] = "float:right;";
+         $del["attribs"]["style"] = "color:black;";  // Change the color here
 
 			// add buttons
+         $buttonWrapper["children"][] = ($mod) ? $del:$rept;
+         $buttonWrapper["children"][] = $reply;
 			$text["children"][] = hr();
-			$text["children"][] = $reply;
-			$text["children"][] = ($mod) ? $del:$rept;
+			$text["children"][] = $buttonWrapper;
 		}
 
 		$final = div($vb, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
@@ -418,13 +429,18 @@
 		$b = make_tag("button", "btn btn-default btn-sm vote-button");
 		$b["attribs"]["type"] = "button";
 		$b["attribs"]["value"] = $id;
-		$b["children"][] = glyph($g);
+		$b["children"][] = fa($g);
 		return $b;
 	}
 
 	function glyph($g)
 	{
 		return make_tag("span", "glyphicon glyphicon-".$g);
+	}
+   
+   function fa($g)
+	{
+		return make_tag("span", "fa fa-".$g);
 	}
 
 	/**

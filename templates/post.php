@@ -1,9 +1,7 @@
 <!-- Post Section -->
 <?php
-
 	$mod = am_mod($soc);
 	echo to_html(post_full($post, $soc, $mod));
-
 ?>
 
 <!-- Comment Section -->
@@ -14,7 +12,7 @@
 				echo "Comments (".$post["comments"].")"."<br>";
 			echo "</h3>";
 		?>
-	<a data-toggle="modal" data-target="#new-comm" class="btn btn-default">Add Comment</a>
+	<button data-toggle="modal" data-target="#new-comm" class="btn btn-dark text-orange">Add Comment</button>
 	</div>
 	<div class="card-body">
 		<?php
@@ -192,8 +190,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<input class="btn btn-default" type="submit" value="Confirm" id="report-post-btn">
-						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+						<input class="btn btn-dark" style="color: orange;" type="submit" value="Confirm" id="report-post-btn">
+						<a href="#" class="btn btn-dark" style="color: orange;" data-dismiss="modal">Cancel</a>
 					</div>
 				</form>
 			</div>
@@ -226,8 +224,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<input class="btn btn-default" type="submit" value="Confirm" id="del-post-btn">
-					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+					<input class="btn btn-dark" style="color: orange;" type="submit" value="Confirm" id="del-post-btn">
+					<a href="#" class="btn btn-dark" style="color: orange;" data-dismiss="modal">Cancel</a>
 				</div>
 			</form>
 		</div>
@@ -260,8 +258,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<input class="btn btn-default" type="submit" value="Confirm" id="sticky-post-btn">
-					<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+					<input class="btn btn-dark" style="color: orange;" type="submit" value="Confirm" id="sticky-post-btn">
+					<a href="#" class="btn btn-dark" style="color: orange;" data-dismiss="modal">Cancel</a>
 				</div>
 			</form>
 		</div>
@@ -293,8 +291,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<input class="btn btn-default" type="submit" value="Confirm" id="report-comm-btn">
-						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+						<input class="btn btn-dark" style="color: orange;" type="submit" value="Confirm" id="report-comm-btn">
+						<a href="#" class="btn btn-dark" style="color: orange;" data-dismiss="modal">Cancel</a>
 					</div>
 				</form>
 			</div>
@@ -327,8 +325,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<input class="btn btn-default" type="submit" value="Confirm" id="del-comm-btn">
-						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+						<input class="btn btn-dark" style="color: orange;" type="submit" value="Confirm" id="del-comm-btn">
+						<a href="#" class="btn btn-dark" style="color: orange;" data-dismiss="modal">Cancel</a>
 					</div>
 				</form>
 			</div>
@@ -354,8 +352,8 @@
 						<input name="parent_id" id="parent-id" class="hidden" value="">
 					</div>
 					<div class="modal-footer">
-						<input class="btn btn-default" type="submit" value="Submit" id="new-comm-btn">
-						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+						<input class="btn btn-dark" style="color: orange;" type="submit" value="Submit" id="new-comm-btn">
+						<a href="#" class="btn btn-dark" style="color: orange;" data-dismiss="modal">Cancel</a>
 					</div>
 				</form>
 			</div>

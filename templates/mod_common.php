@@ -1,64 +1,63 @@
-
 <?php 
 	$t = isset($_GET["view"]) ? $_GET["view"]:"mods";
 	$pg = "mod_panel.php?soc=".$soc["soc_name"]."&view=";
 ?>
 
-<div class="panel container-fluid well">
-<div class="panel-heading well well-sm">
+<div class="card container-fluid">
+<div class="card-header">
 	<h3>Mod Panel</h3>
 </div>
-<div class="panel-body well well-sm">
-<ul class="nav nav-tabs">
-	<li role="navigation" class=<?php echo $t=="main" ? "active":""?>>
-		<a href=<?php echo $pg."main" ?>> 
+<div class="card-body">
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="main" ? 'active':'' ?>" href=<?php echo $pg."main" ?>> 
 			<span><i class="fa fa-tachometer"></i></span>
 			Dashboard
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="mods"  ? "active":"" ?> >
-		<a href=<?php echo $pg."mods" ?>>
-			<span class="glyphicon glyphicon-list"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="mods"  ? 'active':'' ?>" href=<?php echo $pg."mods" ?>>
+			<span class="fa fa-list"></span>
 		   Mod List
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="bans"  ? "active":"" ?> >
-		<a href=<?php echo $pg."bans" ?>>
-			<span class="glyphicon glyphicon-ban-circle"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="bans"  ? 'active':'' ?>" href=<?php echo $pg."bans" ?>>
+			<span class="fa fa-ban"></span>
 			 User bans
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="log"   ? "active":"" ?> >
-		<a href=<?php echo $pg."log" ?>>
-			<span class="glyphicon glyphicon-list-alt"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="log"   ? 'active':'' ?>" href=<?php echo $pg."log" ?>>
+			<span class="fa fa-list-alt"></span>
 			 Mod Log
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="dposts" ? "active":"" ?> >
-		<a href=<?php echo $pg."dposts" ?>>
-			<span class="glyphicon glyphicon-file"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="dposts" ? 'active':'' ?>" href=<?php echo $pg."dposts" ?>>
+			<span class="fa fa-file"></span>
 			 Deleted Posts
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="dcomms" ? "active":"" ?> >
-		<a href=<?php echo $pg."dcomms" ?>>
-			<span class="glyphicon glyphicon-comment"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="dcomms" ? 'active':'' ?>" href=<?php echo $pg."dcomms" ?>>
+			<span class="fa fa-comment"></span>
 			 Deleted Comments
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="preps" ? "active":"" ?> >
-		<a href=<?php echo $pg."preps" ?>>
-			<span class="glyphicon glyphicon-warning-sign"></span>
-			<span class="glyphicon glyphicon-file"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="preps" ? 'active':'' ?>" href=<?php echo $pg."preps" ?>>
+			<span class="fa fa-warning"></span>
+			<span class="fa fa-file"></span>
 			 Reported posts
 		</a>
 	</li>
-	<li role="presentation" class=<?php echo $t=="creps" ? "active":"" ?> >
-		<a href=<?php echo $pg."creps" ?>>
-			<span class="glyphicon glyphicon-warning-sign"></span>
-			<span class="glyphicon glyphicon-comment"></span>
+	<li class="nav-item" role="presentation">
+		<a class="nav-link <?php echo $t=="creps" ? 'active':'' ?>" href=<?php echo $pg."creps" ?>>
+			<span class="fa fa-warning"></span>
+			<span class="fa fa-comment"></span>
 			 Reported comments
 		</a>
 	</li>
 </ul>
-<div class="well">
+<div class="card">

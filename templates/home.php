@@ -63,10 +63,10 @@
 
 <!-- news feed -->
 <div class="row container-fluid" style="">
-	<div class="col-md-10 container-fluid">
-		<div class="card">
+	<div class="col-md-9 container-fluid">
+		<div class="card mt-3">
 		<!-- Default card contents -->
-			<div class="card-header">News Feed</div>
+			<div class="card-header"><h4>News Feed</h4></div>
 			<div class="list-group card-body">
 				<?php 
 					if (count($posts) == 0)
@@ -89,14 +89,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-2 container">
+	<div class="col-md-3 container">
    <div class="card mt-3">
 		<?php
 
 			$t = make_table($subs, ["society"], "table", "sub_socs", [], [0]);
 			$t["children"][0]["attribs"]["hidden"] = ""; // hide table header
 			
-			$table = div(div(par("Subscribed subs"), "card-header"), "card card-primary");
+			$table = div(div(h(5, "Subscribed subs"), "card-header"), "card card-primary");
 			$table["children"][] = $t;
 			echo to_html($table);
 
@@ -107,7 +107,7 @@
             $t = make_table($sublist, ["society"], "table", "sub_socs", [], [0]);
             $t["children"][0]["attribs"]["hidden"] = ""; // hide table header
 
-            $table = div(div(par("MindMingles"), "card-header"), "card card-primary");
+            $table = div(div(h(5, "MindMingles"), "card-header"), "card card-primary");
             $table["children"][] = $t;
             echo to_html($table);
 

@@ -16,12 +16,12 @@
 			    success: function( json ) {
 			    	if (hasVoted)
 			    	{
-				    	$(this).removeClass("btn-success").addClass("btn-default");
+				    	$(this).removeClass("btn-success").addClass("btn-secondary");
 			    	}
 			    	else
 			    	{
-				    	$("#post-down-"+this.value).removeClass("btn-danger").addClass("btn-default");
-				    	$(this).removeClass("btn-default").addClass("btn-success");
+				    	$("#post-down-"+this.value).removeClass("btn-danger").addClass("btn-secondary");
+				    	$(this).removeClass("btn-secondary").addClass("btn-success");
 				    }
 			    },
 			    error: function( xhr, status, errorThrown ) {
@@ -46,12 +46,12 @@
 			    success: function( json ) {
 			    	if (hasVoted)
 			    	{
-				    	$(this).removeClass("btn-danger").addClass("btn-default");
+				    	$(this).removeClass("btn-danger").addClass("btn-secondary");
 			    	}
 			    	else
 			    	{
-				    	$("#post-up-"+this.value).removeClass("btn-success").addClass("btn-default");
-				    	$(this).removeClass("btn-default").addClass("btn-danger");
+				    	$("#post-up-"+this.value).removeClass("btn-success").addClass("btn-secondary");
+				    	$(this).removeClass("btn-secondary").addClass("btn-danger");
 			    	}
 			    },
 			    error: function( xhr, status, errorThrown ) {
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<input class="btn btn-default" type="submit" value="Submit" id="new_post">
+						<input class="btn btn-secondary" type="submit" value="Submit" id="new_post">
 						<a href="#" class="btn" data-dismiss="modal">Cancel</a>
 					</div>
 				</form>
@@ -93,14 +93,14 @@
 	</div>
 	<?php
 		if ($soc["status"]!="LOCKED" && !$status["banned"])
-			echo "<p><a data-toggle=\"modal\" data-target=\"#new-post\" class=\"btn btn-primary btn-large\">New Post</a></p>";
+			echo "<p><a data-toggle=\"modal\" data-target=\"#new-post\" class=\"btn btn-dark\" style=\"color: orange;\">New Post</a></p>";
 	?>
 </div>
 
 <!-- posts -->
-<div class="panel panel-default">
-	<div class="panel-heading">Posts</div>
-	<div class="list-group panel-body">
+<div class="card">
+	<div class="card-header">Posts</div>
+	<div class="list-group card-body">
 		<?php 
 			if (count($posts) == 0)
 			{
