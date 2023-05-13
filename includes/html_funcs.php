@@ -328,36 +328,47 @@
 		$title = strong("\t(".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
 		$time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
 		$text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
+      $buttonWrapper = div("", "button-wrapper");
+      $buttonWrapper["attribs"]["style"] = "display:flex; justify-content:space-between;";
+
 
 		if ($c["status"] != "DELETED")
 		{
 			// reply button
 			$reply = a("", "btn btn-xs btn-link comm-reply");
+         $reply["children"][] = fa("reply");
+         $reply["children"][] = " Reply";
 			$reply["data"] = "reply";
 			$reply["attribs"]["data-toggle"] = "modal";
 			$reply["attribs"]["data-target"] = "#new-comm";
 			$reply["attribs"]["value"] = $c["comm_id"];
+         $reply["attribs"]["style"] = "color:black;";  // Change the color here
 
 			// report button
 			$rept = a("", "btn btn-xs btn-link comm-report");
+         $rept["children"][] = fa("warning");
+         $rept["children"][] = " Report";
 			$rept["data"] = "report";
 			$rept["attribs"]["data-toggle"] = "modal";
 			$rept["attribs"]["data-target"] = "#report-comm";
 			$rept["attribs"]["value"] = $c["comm_id"];
-			$rept["attribs"]["style"] = "float:right;";
+         $rept["attribs"]["style"] = "color:black;";  // Change the color here
 			
 			// delete button
 			$del = a("", "btn btn-xs btn-link comm-del");
+         $del["children"][] = fa("trash");
+         $del["children"][] = " Delete";
 			$del["data"] = "delete";
 			$del["attribs"]["data-toggle"] = "modal";
 			$del["attribs"]["data-target"] = "#del-comm";
 			$del["attribs"]["value"] = $c["comm_id"];
-			$del["attribs"]["style"] = "float:right;";
+         $del["attribs"]["style"] = "color:black;";  // Change the color here
 
 			// add buttons
+         $buttonWrapper["children"][] = ($mod) ? $del:$rept;
+         $buttonWrapper["children"][] = $reply;
 			$text["children"][] = hr();
-			$text["children"][] = $reply;
-			$text["children"][] = ($mod) ? $del:$rept;
+			$text["children"][] = $buttonWrapper;
 		}
 
 		$final = div($vb, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
