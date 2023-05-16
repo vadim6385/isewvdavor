@@ -1,6 +1,6 @@
 <?php
 
-	require_once('..includes/global.php');
+	require_once('../includes/global.php');
 	session_start();
 
 	if (isset($_POST))
