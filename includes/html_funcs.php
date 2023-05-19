@@ -216,15 +216,14 @@
 
 		// vote buttons
 		$vb = post_vote_buttons($p);
-		// $vb["attribs"]["class"] .= " col-md-1";
 
 		// report button
 		$rept = a("", "btn btn-xs btn-link post-report");
-		$rept["data"] = "report";
+		$rept["data"] = span("report");
 		$rept["attribs"]["data-toggle"] = "modal";
 		$rept["attribs"]["data-target"] = "#report-post";
 		$rept["attribs"]["value"] = $p["post_id"];
-		$rept["attribs"]["style"] = "float:right;";
+		$rept["attribs"]["style"] = "float:right; color:black;";
 
 		// delete button
 		$del = a("", "btn btn-xs btn-link post-del");
@@ -233,7 +232,7 @@
 		$del["attribs"]["data-toggle"] = "modal";
 		$del["attribs"]["data-target"] = "#del-post";
 		$del["attribs"]["value"] = $p["post_id"];
-		$del["attribs"]["style"] = "float:right;";
+		$del["attribs"]["style"] = "float:right; color:black;";
 
 		// sticky button
 		$sticky = a("", "btn btn-xs btn-link post-sticky");
@@ -242,7 +241,7 @@
 		$sticky["attribs"]["data-toggle"] = "modal";
 		$sticky["attribs"]["data-target"] = "#sticky-post";
 		$sticky["attribs"]["value"] = $p["post_id"];
-		$sticky["attribs"]["style"] = "float:right;";
+		$sticky["attribs"]["style"] = "float:right; color:black;";
 
 		// put it all together
 		$h = div($vb, "row");
@@ -321,76 +320,80 @@
 		return $subtree;
 	}
 
-	function comment($c, $mod)
-	{
-		$vb = comm_vote_buttons($c);
+   function comment($c, $mod)
+   {
+       $vb = comm_vote_buttons($c);
 
-		$title = strong("\t(".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
-		$time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
-		$text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
+       $title = strong("\t".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
+       $time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
+       $text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
 
-      $commentContent = div("", "comment-content");
-      $commentContent["attribs"]["style"] = "display:flex; align-items: start;";
-      $commentContent["children"][] = $vb;  // Move the vote buttons here, to the left side
-      
+       $commentContent = div("", "comment-content");
+       $commentContent["attribs"]["style"] = "display:flex; align-items: start;";
+       $commentContent["children"][] = $vb;
 
+       $buttonWrapper = div("", "button-wrapper");
+       $buttonWrapper["attribs"]["style"] = "display:flex; justify-content: space-between;";
 
-      $buttonWrapper = div("", "button-wrapper");
-      $buttonWrapper["attribs"]["style"] = "display:flex; justify-content:space-between;";
+       $commentTextAndButtons = div("", "comment-text-buttons");
+       $commentTextAndButtons["attribs"]["style"] = "display:flex; flex-direction:column; width: 100%;";
+       $commentTextAndButtons["children"][] = $title;
+       $commentTextAndButtons["children"][] = $time;
+       $commentTextAndButtons["children"][] = $text;
 
+       if ($c["status"] != "DELETED")
+       {
+           // your buttons code ...
 
-		if ($c["status"] != "DELETED")
-		{
-			// reply button
-			$reply = a("", "btn btn-xs btn-link comm-reply");
-         $reply["children"][] = fa("reply");
-         $reply["children"][] = " Reply";
-			$reply["data"] = "reply";
-			$reply["attribs"]["data-toggle"] = "modal";
-			$reply["attribs"]["data-target"] = "#new-comm";
-			$reply["attribs"]["value"] = $c["comm_id"];
-         $reply["attribs"]["style"] = "color:black;";  // Change the color here
+           // reply button
+           $reply = a("", "btn btn-xs btn-link comm-reply");
+           $reply["children"][] = fa("reply");
+           $reply["children"][] = span(" Reply");
+           $reply["data"] = "reply";
+           $reply["attribs"]["data-toggle"] = "modal";
+           $reply["attribs"]["data-target"] = "#new-comm";
+           $reply["attribs"]["value"] = $c["comm_id"];
+           $reply["attribs"]["style"] = "color:black;";  // Change the color here
 
-			// report button
-			$rept = a("", "btn btn-xs btn-link comm-report");
-         $rept["children"][] = fa("warning");
-         $rept["children"][] = " Report";
-			$rept["data"] = "report";
-			$rept["attribs"]["data-toggle"] = "modal";
-			$rept["attribs"]["data-target"] = "#report-comm";
-			$rept["attribs"]["value"] = $c["comm_id"];
-         $rept["attribs"]["style"] = "color:black;";  // Change the color here
-			
-			// delete button
-			$del = a("", "btn btn-xs btn-link comm-del");
-         $del["children"][] = fa("trash");
-         $del["children"][] = " Delete";
-			$del["data"] = "delete";
-			$del["attribs"]["data-toggle"] = "modal";
-			$del["attribs"]["data-target"] = "#del-comm";
-			$del["attribs"]["value"] = $c["comm_id"];
-         $del["attribs"]["style"] = "color:black;";  // Change the color here
+           // report button
+           $rept = a("", "btn btn-xs btn-link comm-report");
+           $rept["children"][] = fa("warning");
+           $rept["children"][] = span(" Report");
+           $rept["data"] = "report";
+           $rept["attribs"]["data-toggle"] = "modal";
+           $rept["attribs"]["data-target"] = "#report-comm";
+           $rept["attribs"]["value"] = $c["comm_id"];
+           $rept["attribs"]["style"] = "color:black;";  // Change the color here
+           
+           // delete button
+           $del = a("", "btn btn-xs btn-link comm-del");
+           $del["children"][] = fa("trash");
+           $del["children"][] = span(" Delete");
+           $del["data"] = "delete";
+           $del["attribs"]["data-toggle"] = "modal";
+           $del["attribs"]["data-target"] = "#del-comm";
+           $del["attribs"]["value"] = $c["comm_id"];
+           $del["attribs"]["style"] = "color:black;";  // Change the color here
 
-			// add buttons
-         $buttonWrapper["children"][] = hr();
-         $buttonWrapper["children"][] = ($mod) ? $del:$rept;
-         $buttonWrapper["children"][] = $reply;
-		}
-      
-      $commentTextAndButtons = div("", "comment-text-buttons");
-      $commentTextAndButtons["attribs"]["style"] = "display:flex; flex-direction:column; width: 100%;";
-      $commentTextAndButtons["children"][] = $title;
-      $commentTextAndButtons["children"][] = $time;
-      $commentTextAndButtons["children"][] = $text;
-      $commentTextAndButtons["children"][] = $buttonWrapper;
+           $buttonsLeft = div("", "buttons-left");
+           $buttonsLeft["children"][] = ($mod) ? $del:$rept;
+           $buttonsRight = div("", "buttons-right");
+           $buttonsRight["children"][] = $reply;
 
-      $commentContent["children"][] = $commentTextAndButtons;
-      
+           $buttonWrapper["children"][] = $buttonsLeft;
+           $buttonWrapper["children"][] = $buttonsRight;
 
-		$final = div($commentContent, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
+           $commentTextAndButtons["children"][] = $buttonWrapper;
+           $commentTextAndButtons["children"][] = hr();
+       }
 
-		return $final;
-	}
+       $commentContent["children"][] = $commentTextAndButtons;
+
+       $final = div($commentContent, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
+
+       return $final;
+   }
+
 
 	/**
 		Vote buttons
