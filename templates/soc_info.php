@@ -25,8 +25,8 @@
     <div class="modal-dialog" role="form">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3 class="modal-title">Edit</h3>
+                <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <form id="soc-info-form" method="POST" action="soc_info.php">
                 <div class="modal-body">
@@ -51,8 +51,8 @@
     <div class="modal-dialog" role="">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3 class="modal-title">History</h3>
+                <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <div class="modal-body">
                 <ul class="list-group">
@@ -86,8 +86,8 @@
     <div class="modal-dialog" role="dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3 id="soc-old-info-details" class="modal-title"></h3>
+                <button type="button" class="close" data-dismiss="modal">×</button>
             </div>
             <div class="modal-body">
                 <div class="form-group">

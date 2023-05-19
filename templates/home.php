@@ -122,8 +122,8 @@
 	<div class="modal-dialog" role="form">
 		<div class="modal-content">
 			<div class="modal-header">
-				<a class="close" data-dismiss="modal">×</a>
 				<h3>Create a new Society</h3>
+            <a class="close" data-dismiss="modal">×</a>
 			</div>
 			<form id="new-soc-form" class="" method="POST" action="new_soc.php" >
 				<div class="modal-body">

@@ -71,8 +71,8 @@
 		<div class="modal-dialog" role="form">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a class="close" data-dismiss="modal">×</a>
 					<h3>Submit a new post</h3>
+               <a class="close" data-dismiss="modal">×</a>
 				</div>
 				<form id="postf" class="" method="post" action=<?php echo "\"new_post.php?soc=".$soc["soc_name"]."\"";?> >
 					<div class="modal-body">
