@@ -216,7 +216,7 @@
 
 		// vote buttons
 		$vb = post_vote_buttons($p);
-		$vb["attribs"]["class"] .= " col-md-1";
+		// $vb["attribs"]["class"] .= " col-md-1";
 
 		// report button
 		$rept = a("", "btn btn-xs btn-link post-report");
@@ -247,7 +247,7 @@
 		// put it all together
 		$h = div($vb, "row");
 		$h["children"][] = $a;
-		$h = div($h, "card-header");
+		$h = div($h, "row container-fluid");
 		$t = div($text, "card-body");
 		$t["children"][] = hr();
 		if ($mod)
@@ -260,7 +260,7 @@
 			$t["children"][] = $rept;	
 		}
 		
-		$final = div($h, "card");
+		$final = div($h, "card container-fluid");
 		$final["children"][] = $t;
 		return $final;
 	}
