@@ -275,7 +275,7 @@
 		$div2 = div($a, "col-sm-10 container-fluid");
 		$div2["children"][] = div($d, "row");
 		$div2["children"][] = div(small($p["comments"]." comments", "post-summ-comms"), "row");
-		$div = div(post_vote_buttons($p), "row");
+		$div = div(post_vote_buttons($p), "row container-fluid post-summary".(($p["status"]=="STICKIED") ? " post-stickied":""));
 		$div["children"][] = $div2;
 		return $div;
 	}
@@ -324,7 +324,7 @@
    {
        $vb = comm_vote_buttons($c);
 
-       $title = strong("\t".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
+       $title = strong("\t(".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
        $time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
        $text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
 
@@ -400,7 +400,7 @@
 	*/
 	function post_vote_buttons($p)
 	{
-		$bdiv = make_tag("div", "card btn-group vote-buttons");
+		$bdiv = make_tag("div", "card btn-group vote-buttons post-".$p["post_id"]);
 		$bdiv["attribs"]["role"] = "group";
 		
 		$up = vote_button($p["post_id"], "arrow-up");
