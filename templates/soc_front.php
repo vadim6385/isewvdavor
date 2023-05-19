@@ -110,7 +110,7 @@
 			{
 				foreach($posts as $p)
 				{
-					echo "<div class=\"card\">";
+					echo "<div class=\"card container-fluid\">";
 
 					echo to_html(post_summary($p, $soc["soc_name"]));
 

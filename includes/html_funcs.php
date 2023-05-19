@@ -384,7 +384,7 @@
 	*/
 	function post_vote_buttons($p)
 	{
-		$bdiv = make_tag("div", "btn-group vote-buttons");
+		$bdiv = make_tag("div", "card btn-group vote-buttons");
 		$bdiv["attribs"]["role"] = "group";
 		
 		$up = vote_button($p["post_id"], "arrow-up");
@@ -402,7 +402,7 @@
 
 	function comm_vote_buttons($c)
 	{
-		$bdiv = make_tag("div", "btn-group vote-buttons", "comm-vote-buttons-".$c["comm_id"]);
+		$bdiv = make_tag("div", "card btn-group vote-buttons", "comm-vote-buttons-".$c["comm_id"]);
 		$bdiv["attribs"]["role"] = "group";
 		
 		$up = vote_button($c["comm_id"], "arrow-up");
