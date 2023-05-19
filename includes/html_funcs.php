@@ -276,7 +276,7 @@
 		$div2 = div($a, "col-sm-10 container-fluid");
 		$div2["children"][] = div($d, "row");
 		$div2["children"][] = div(small($p["comments"]." comments", "post-summ-comms"), "row");
-		$div = div(post_vote_buttons($p), "card");
+		$div = div(post_vote_buttons($p), "row");
 		$div["children"][] = $div2;
 		return $div;
 	}
