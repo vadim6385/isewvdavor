@@ -100,7 +100,7 @@
 <!-- posts -->
 <div class="card">
 	<div class="card-header">Posts</div>
-	<div class="list-group card-body">
+	<div class="list-group card-header">
 		<?php 
 			if (count($posts) == 0)
 			{

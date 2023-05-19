@@ -16,7 +16,7 @@
 		</div>
 		<button data-toggle="modal" data-target="#new-comm" class="btn btn-dark text-orange">Add Comment</button>
 	</div>
-	<div class="card-body">
+	<div class="card-header">
 		<?php
 			if (count($comms) == 0)
 				echo to_html(par("No comments yet."));

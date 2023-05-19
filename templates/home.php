@@ -67,7 +67,7 @@
 		<div class="card mt-3">
 		<!-- Default card contents -->
 			<div class="card-header"><h4>News Feed</h4></div>
-			<div class="list-group card-body">
+			<div class="list-group card-header">
 				<?php 
 					if (count($posts) == 0)
 					{
