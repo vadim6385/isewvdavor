@@ -5,14 +5,16 @@
 ?>
 
 <!-- Comment Section -->
-<div class="card mb-3">
-	<div class="card-header">
-		<?php
-			echo "<h3>";
-				echo "Comments (".$post["comments"].")"."<br>";
-			echo "</h3>";
-		?>
-	<button data-toggle="modal" data-target="#new-comm" class="btn btn-dark text-orange">Add Comment</button>
+<div class="card mb-3 container-fluid">
+	<div class="card-header row d-flex justify-content-between align-items-center">
+		<div>
+			<?php
+				echo "<h5>";
+					echo "Comments (".$post["comments"].")"."<br>";
+				echo "</h5>";
+			?>
+		</div>
+		<button data-toggle="modal" data-target="#new-comm" class="btn btn-dark text-orange">Add Comment</button>
 	</div>
 	<div class="card-body">
 		<?php

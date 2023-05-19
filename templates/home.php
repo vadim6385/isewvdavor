@@ -77,7 +77,7 @@
 					{
 						foreach($posts as $p)
 						{
-							echo "<div class=\"row\">";
+							echo "<div class=\"card container-fluid\">";
 
 							echo to_html(post_summary($p, $p["society"], true));
 
