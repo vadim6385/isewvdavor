@@ -67,7 +67,7 @@
 		<div class="card mt-3">
 		<!-- Default card contents -->
 			<div class="card-header"><h4>News Feed</h4></div>
-			<div class="list-group card-body">
+			<div class="list-group card-header">
 				<?php 
 					if (count($posts) == 0)
 					{
@@ -77,7 +77,7 @@
 					{
 						foreach($posts as $p)
 						{
-							echo "<div class=\"card container-fluid\">";
+							echo "<div class=\"container-fluid\">";
 
 							echo to_html(post_summary($p, $p["society"], true));
 
@@ -122,8 +122,8 @@
 	<div class="modal-dialog" role="form">
 		<div class="modal-content">
 			<div class="modal-header">
-				<a class="close" data-dismiss="modal">×</a>
 				<h3>Create a new Society</h3>
+            <a class="close" data-dismiss="modal">×</a>
 			</div>
 			<form id="new-soc-form" class="" method="POST" action="new_soc.php" >
 				<div class="modal-body">

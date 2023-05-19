@@ -9,12 +9,12 @@
 
 <?php
 
-	$table = div(div(par("Societies you moderate"), "panel-heading"), "panel panel-primary");
+	$table = div(div(par("Societies you moderate"), "card-header"), "card card-primary");
 	$table["children"][] = make_table($msubs, ["society", "mod since"], "table", "umsocs", [], [0]);
 
 	echo to_html($table);
 
-	$table = div(div(par("Subscribed subs"), "panel-heading"), "panel panel-primary");
+	$table = div(div(par("Subscribed subs"), "card-header"), "card card-primary");
 	$table["children"][] = make_table($subs, ["society", "subbed since"], "table", "ussocs", [], [0]);
 
 	echo to_html($table);

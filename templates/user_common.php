@@ -4,8 +4,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h5 class="modal-title">Send Private Message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <form id="pmf" class="pm" method="POST" action="<?php echo 'new_pm.php'; ?>">
                     <div class="modal-body">
@@ -33,8 +33,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h5 class="modal-title" id="report-user-heading">Report user</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <form id="user_report_f" class="" method="POST" action="report_user.php">
                     <div class="modal-body">
@@ -97,4 +97,4 @@ $pg .= '&view=';
         ?>
     </div>
 </nav>
-<div class="well">
+<div class="card-header">

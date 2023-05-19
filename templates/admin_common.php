@@ -2,8 +2,8 @@
     $t = isset($_GET["view"]) ? $_GET["view"] : "admins";
     $pg = "admin_panel.php?&view=";
 ?>
-<div class="card container-fluid mt-3">
-    <div class="card-header mt-3">
+<div class="card-header container-fluid mt-3">
+    <div class="mt-3">
         <h3 class="card-title">Admin Panel</h3>
     </div>
     <div class="card mt-3">
@@ -46,4 +46,4 @@
                 </li>
             </ul>
         </div>
-        <div class="well">
+        <div class="card-header">

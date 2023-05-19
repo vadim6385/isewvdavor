@@ -16,7 +16,7 @@
 		</div>
 		<button data-toggle="modal" data-target="#new-comm" class="btn btn-dark text-orange">Add Comment</button>
 	</div>
-	<div class="card-body">
+	<div class="card-header">
 		<?php
 			if (count($comms) == 0)
 				echo to_html(par("No comments yet."));
@@ -176,8 +176,8 @@
 		<div class="modal-dialog" role="form">
 			<div class="modal-content">
 				<div class="modal-header">
-					<a class="close" data-dismiss="modal">×</a>
 					<h3 id="report-post-heading">Report post</h3>
+               <a class="close" data-dismiss="modal">×</a>
 				</div>
 				<form id="post_report_f" class="" method="POST" action=<?php echo "\"report_post.php?soc=".$soc["soc_name"]."&pid=".$post["post_id"]."\"";?> >
 					<div class="modal-body">
@@ -206,8 +206,8 @@
 	<div class="modal-dialog" role="form">
 		<div class="modal-content">
 			<div class="modal-header">
+            <h3 id="del-post-heading">Delete post</h3>
 				<a class="close" data-dismiss="modal">×</a>
-				<h3 id="del-post-heading">Delete post</h3>
 			</div>
 			<form id="post_del_f" class="" method="POST" action="del_post.php">
 				<div class="modal-body">
@@ -239,8 +239,8 @@
 	<div class="modal-dialog" role="form">
 		<div class="modal-content">
 			<div class="modal-header">
-				<a class="close" data-dismiss="modal">×</a>
 				<h3 id="sticky-post-heading"><?php echo ($post["status"]=="STICKIED") ? "Unsticky":"Sticky"; ?> post</h3>
+            <a class="close" data-dismiss="modal">×</a>
 			</div>
 			<form id="post_sticky_f" class="" method="POST" action="sticky_post.php" >
 				<div class="modal-body">
@@ -274,8 +274,8 @@
 		<div class="modal-dialog" role="form">
 			<div class="modal-content">
 				<div class="modal-header">
+               <h3 id="report-comm-heading">Report comment</h3>
 					<a class="close" data-dismiss="modal">×</a>
-					<h3 id="report-comm-heading">Report comment</h3>
 				</div>
 				<form id="comm_report_f" class="" method="POST" action=<?php echo "\"report_comm.php?soc=".$soc["soc_name"]."&pid=".$post["post_id"]."\"";?> >
 					<div class="modal-body">
@@ -308,8 +308,8 @@
 		<div class="modal-dialog" role="form">
 			<div class="modal-content">
 				<div class="modal-header">
+               <h3 id="del-comm-heading">Delete comment</h3>
 					<a class="close" data-dismiss="modal">×</a>
-					<h3 id="del-comm-heading">Delete comment</h3>
 				</div>
 				<form id="comm_del_f" class="" method="POST" action=<?php echo "\"del_comm.php?soc=".$soc["soc_name"]."&pid=".$post["post_id"]."\"";?> >
 					<div class="modal-body">
@@ -342,8 +342,8 @@
 		<div class="modal-dialog" role="form">
 			<div class="modal-content">
 				<div class="modal-header">
+               <h3 id="new-comm-heading">Add comment</h3>
 					<a class="close" data-dismiss="modal">×</a>
-					<h3 id="new-comm-heading">Add comment</h3>
 				</div>
 				<form id="comm_delf" class="comm" method="POST" action=<?php echo "\"new_comm.php?soc=".$soc["soc_name"]."&pid=".$post["post_id"]."\"";?> >
 					<div class="modal-body">
