@@ -273,7 +273,7 @@
 			$title["children"][] = css_float(div(fa("map-pin")), "right");
       $d = small("submitted by ".to_html(user_link($p["username"]))." on ".$p["time"].(($show_soc) ? " to ".to_html(soc_link($sname)):""), "post-details");
 		$a["children"][] = div($title, "row");
-		$div2 = div($a, "col-sm-11 container-fluid");
+		$div2 = div($a, "col-sm-10 container-fluid");
 		$div2["children"][] = div($d, "row");
 		$div2["children"][] = div(small($p["comments"]." comments", "post-summ-comms"), "row");
 		$div = div(post_vote_buttons($p), "card");
