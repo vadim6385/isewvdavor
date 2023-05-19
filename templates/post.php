@@ -5,8 +5,8 @@
 ?>
 
 <!-- Comment Section -->
-<div class="card mb-3">
-	<div class="card-header">
+<div class="card mb-3 container-fluid">
+	<div class="card-header row container-fluid">
 		<?php
 			echo "<h3>";
 				echo "Comments (".$post["comments"].")"."<br>";
