@@ -328,6 +328,13 @@
 		$title = strong("\t(".(($c["votes"]>0) ? "+":"").$c["votes"].") ".$c["username"], "comm-title", "comm-title-".$c["comm_id"]);
 		$time = small("(".$c["time"].")", "comm-time", "comm-time-".$c["comm_id"]);
 		$text = div(par(($c["status"] == "DELETED") ? "[DELETED]":$c["text"], "comm-text comm-text-deleted", "comm-text-".$c["comm_id"]), "card");
+
+      $commentContent = div("", "comment-content");
+      $commentContent["attribs"]["style"] = "display:flex; align-items: start;";
+      $commentContent["children"][] = $vb;  // Move the vote buttons here, to the left side
+      
+
+
       $buttonWrapper = div("", "button-wrapper");
       $buttonWrapper["attribs"]["style"] = "display:flex; justify-content:space-between;";
 
@@ -365,16 +372,22 @@
          $del["attribs"]["style"] = "color:black;";  // Change the color here
 
 			// add buttons
+         $buttonWrapper["children"][] = hr();
          $buttonWrapper["children"][] = ($mod) ? $del:$rept;
          $buttonWrapper["children"][] = $reply;
-			$text["children"][] = hr();
-			$text["children"][] = $buttonWrapper;
 		}
+      
+      $commentTextAndButtons = div("", "comment-text-buttons");
+      $commentTextAndButtons["attribs"]["style"] = "display:flex; flex-direction:column; width: 100%;";
+      $commentTextAndButtons["children"][] = $title;
+      $commentTextAndButtons["children"][] = $time;
+      $commentTextAndButtons["children"][] = $text;
+      $commentTextAndButtons["children"][] = $buttonWrapper;
 
-		$final = div($vb, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
-		$final["children"][] = $title;
-		$final["children"][] = $time;
-		$final["children"][] = $text;
+      $commentContent["children"][] = $commentTextAndButtons;
+      
+
+		$final = div($commentContent, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
 
 		return $final;
 	}
