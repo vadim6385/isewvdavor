@@ -267,7 +267,7 @@
 	function post_summary($p, $sname, $show_soc = false)
 	{
 		$a = a("post.php?pid=".$p["post_id"]."&soc=".$sname);
-		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", "card-header post-title", "post-title-".$p["post_id"]));
+		$title = div(h(4, $p["title"]."\t(".(($p["votes"]>0) ? "+":"").$p["votes"].")", "post-title", "post-title-".$p["post_id"]));
 		if ($p["status"]=="STICKIED")
 			$title["children"][] = css_float(div(fa("map-pin")), "right");
       $d = small("submitted by ".to_html(user_link($p["username"]))." on ".$p["time"].(($show_soc) ? " to ".to_html(soc_link($sname)):""), "post-details");
