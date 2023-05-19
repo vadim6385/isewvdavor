@@ -7,7 +7,7 @@
 
 <?php
 
-	$table = div(div(par("Post history"), "panel-heading"), "panel panel-primary");
+	$table = div(div(par("Post history"), "card-header"), "card card-primary");
 	$table["children"][] = make_table($posts, ["title", "votes", "society", "time"], "table", "uphist", [], [2], [0]);
 
 	echo to_html($table);

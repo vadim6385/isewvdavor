@@ -97,4 +97,4 @@ $pg .= '&view=';
         ?>
     </div>
 </nav>
-<div class="well">
+<div class="card-header">

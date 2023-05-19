@@ -3,12 +3,12 @@
 	$pg = "mod_panel.php?soc=".$soc["soc_name"]."&view=";
 ?>
 
-<div class="card container-fluid">
-<div class="card-header">
+<div class="card-header container-fluid">
+<div class="mt-3">
 	<h3>Mod Panel</h3>
 </div>
-<div class="card-body">
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+<div class="card mt-3">
+<ul class="nav nav-tabs">
 	<li class="nav-item" role="presentation">
 		<a class="nav-link <?php echo $t=="main" ? 'active':'' ?>" href=<?php echo $pg."main" ?>> 
 			<span><i class="fa fa-tachometer"></i></span>
@@ -60,4 +60,4 @@
 		</a>
 	</li>
 </ul>
-<div class="card">
+<div class="card-header">
