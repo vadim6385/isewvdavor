@@ -389,7 +389,7 @@
 
        $commentContent["children"][] = $commentTextAndButtons;
 
-       $final = div($commentContent, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " comm-child":""));
+       $final = div($commentContent, "card comm-card".(($c["anc_id"] != $c["comm_id"]) ? " col-sm-10 offset-sm-1":""));
 
        return $final;
    }
