@@ -23,13 +23,19 @@
            
            $html .= ">";
            
-           if (isset($a["children"])) {
-               foreach ($a["children"] as $child) {
-                   $html .= "\n".to_html($child)."\n";
-               }
-           } elseif (isset($a["data"])) {
-               $html .= $a["data"];
-           }
+       if (isset($a["children"])) {
+          foreach ($a["children"] as $child) {
+          $html .= "\n".to_html($child)."\n";
+          }
+          } elseif (isset($a["data"])) {
+            if (is_array($a["data"])) {
+            foreach ($a["data"] as $data) {
+               $html .= to_html($data);
+          }
+          } else {
+          $html .= $a["data"];
+         }
+       }
            
            $html .= "</".$a["tag"].">";
        }
